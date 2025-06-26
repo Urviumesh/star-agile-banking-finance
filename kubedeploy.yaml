@@ -1,10 +1,11 @@
-piVersion: apps/v1
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bankapp-deploy
- labels:
+  labels:
     app: bankfin-app
-       spec:
+spec:
   replicas: 3
   selector:
     matchLabels:
@@ -12,27 +13,26 @@ metadata:
   template:
     metadata:
       labels:
-        app:bankfin-app
+        app: bankfin-app
     spec:
       containers:
-        - name:bankfin-app-container
+        - name: bankfin-app-container
           image: urvi11umesh/bankfin-app
           ports:
             - containerPort: 8082
------
+
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: bankfin-np-service
-labels:
-  app:bankfin-app
+  labels:
+    app: bankfin-app
 spec:
   selector:
     app: bankfin-app
-
-type:Nodeport
+  type: NodePort
   ports:
-     -nodePort:
-     port: 8082
+    - port: 8082
       targetPort: 8082
-
+      nodePort: 30082   # Optional: custom port, or remove this line for random NodePort
