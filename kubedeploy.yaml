@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+piVersion: apps/v1
 kind: Deployment
 metadata:
   name: bankapp-deploy
@@ -32,6 +32,7 @@ spec:
 
 type:Nodeport
   ports:
-     -nodePort: 
+     -nodePort:
      port: 8082
       targetPort: 8082
+
