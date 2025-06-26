@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankfinapp-deployment
+ labels:
+    app: bankfinapp-app
+       spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bankfinapp-app
+  template:
+    metadata:
+      labels:
+        app:bankfinapp-app
+    spec:
+      containers:
+        - name:bankfinapp-app-container
+          image: urvi11umesh/bankfinapp-app
+          ports:
+            - containerPort: 8082
+-----
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankfinapp-np-service
+labels:
+  app:bankfinapp-app
+spec:
+  selector:
+    app: bankfinapp-app
+
+type:Nodeport
+  ports:
+     -nodePort: 
+     port: 8082
+      targetPort: 8082
