@@ -35,4 +35,4 @@ spec:
   ports:
     - port: 8082
       targetPort: 8082
-      nodePort: 30082   # Optional: custom port, or remove this line for random NodePort
+      nodePort: 31032  
