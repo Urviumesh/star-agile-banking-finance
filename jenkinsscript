@@ -19,7 +19,7 @@ pipeline {
        stage("Docker build"){
             steps {
 				sh 'docker version'
-				sh "docker build -t urvi11umesh/bankfin-app-eta-app:${BUILD_NUMBER} ."
+				sh "docker build -t urvi11umesh/bankfin-app:${BUILD_NUMBER} ."
 				sh 'docker image list'
 				sh "docker tag urvi11umesh/bankfin-app:${BUILD_NUMBER}urvi11umesh/bankfin-app:latest"
             }
