@@ -16,7 +16,7 @@ pipeline {
              sh 'mvn clean package'
             }
 		}
-       stage("Docker build"){
+       stage("Docker build..."){
             steps {
 				sh 'docker version'
 				sh "docker build -t urvi11umesh/bankfin-app:${BUILD_NUMBER} ."
